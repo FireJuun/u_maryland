@@ -2,6 +2,8 @@
 
 Demo project for the University of Maryland's Google Developer Student Club meeting on Friday April 28, 2023.
 
+<img align="right" src="demo.gif" width="250"/>
+
 ## Getting Started
 
 If you've never used Flutter before, check out these resources to get started:

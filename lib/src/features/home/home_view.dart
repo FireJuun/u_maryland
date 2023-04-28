@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('text'),
+        title: const Text('Grad Students'),
       ),
       body: const SafeArea(child: _Body()),
       bottomNavigationBar: const _BottomNavBar(),
