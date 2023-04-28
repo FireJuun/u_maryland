@@ -4,6 +4,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:u_maryland/src/features/home/home.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart';
+
+@WidgetbookUseCase(name: 'Home', type: HomeView)
+Widget homeView(BuildContext context) => const HomeView();
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

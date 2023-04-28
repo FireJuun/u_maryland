@@ -93,6 +93,19 @@ We originally followed [GSkinner's MVC+S](https://blog.gskinner.com/archives/202
 
 Some of the items shown in this demo harness Widgetbook version 3, which thus far has limited documentation and examples. Given how useful these packages are, we are including these packages in this 'getting started' template.
 
+Also (assuming you're following the same folder structure as this project), be sure to add this to your `launch.json` file:
+
+```json
+{
+    "name": "widgetbook",
+    "request": "launch",
+    "type": "dart",
+    "deviceId": "macos",
+    "program": "lib/src/widgetbook/app.widgetbook.dart",
+    "flutterMode": "debug",
+},
+```
+
 ## Images
 
 Images used in this example app were created using MidJourney and are available in the Creative Commons space.

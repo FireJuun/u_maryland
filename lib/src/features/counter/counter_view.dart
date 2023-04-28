@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 
 import 'counter.dart';
+
+@WidgetbookUseCase(name: 'Counter', type: CounterView)
+Widget counterView(BuildContext context) => const CounterView();
 
 class CounterView extends ConsumerWidget {
   const CounterView({super.key});
