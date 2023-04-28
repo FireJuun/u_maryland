@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -19,15 +20,20 @@ class HomeView extends StatelessWidget {
   }
 }
 
-class _Body extends StatelessWidget {
+class _Body extends HookWidget {
   const _Body();
 
   @override
   Widget build(BuildContext context) {
+    final animationController = useAnimationController();
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Image.asset('assets/testudo-statue.png'),
+        GestureDetector(
+            onTap: () => animationController.loop(count: 1),
+            child: Image.asset('assets/testudo-statue.png')
+                .animate(controller: animationController)
+                .shimmer()),
         const Expanded(child: _Selections())
       ],
     );
@@ -71,7 +77,18 @@ class _Selections extends HookConsumerWidget {
             alignment: WrapAlignment.spaceEvenly,
             spacing: 12,
             runSpacing: 24,
-            children: _items,
+            children: [
+              ..._items,
+              Container(
+                  width: double.infinity,
+                  color: Theme.of(context).disabledColor,
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    'Twitter Messages',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
+                  )),
+            ],
           ),
         ),
       ),
