@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:u_maryland/src/features/counter/counter_providers.dart';
+
+import 'counter.dart';
 
 class CounterView extends ConsumerWidget {
   const CounterView({super.key});

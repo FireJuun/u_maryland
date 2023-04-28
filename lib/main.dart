@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         // title: 'U Maryland',
         theme: appTheme(),
-        home: const CounterView(),
+        home: const HomeView(),
       ),
     );
   }
