@@ -95,6 +95,39 @@ We originally followed [GSkinner's MVC+S](https://blog.gskinner.com/archives/202
 
 Some of the items shown in this demo harness Widgetbook version 3, which thus far has limited documentation and examples. Given how useful these packages are, we are including these packages in this 'getting started' template.
 
+For Widgetbook, in current state, you need to install the beta versions of `widgetbook`, `widgetbook_annotations` as dependencies and `widgetbook_generator` as a dev dependency. You should also create a file for the generator (for this repo, this is in `src/widgetbook/app.dart`).
+
+```dart
+@WidgetbookApp.material(
+  devices: [
+    Apple.iPhone13,
+    Apple.iPad9Inch,
+    Desktop.desktop1080p,
+    Apple.iPadMini,
+    Apple.iPhone13Mini
+  ],
+  textScaleFactors: [1.0, 1.25, 1.5, 2],
+  foldersExpanded: true,
+  widgetsExpanded: true,
+)
+@WidgetbookTheme(name: 'Light', isDefault: true)
+ThemeData getLightTheme() => appTheme();
+
+@WidgetbookTheme(name: 'Dark')
+ThemeData getDarkTheme() => appTheme(darkMode: true);
+```
+
+In current state, you don't need to bother adding `part <filename>.widgetbook.dart` to the top of the file. Also, be sure that you are importing @WidgetbookTheme annotations from `widgetbook_annotations` over `widgetbook`, since they require different inputs right now. Eventually, I anticipate Widgetbook 3 will follow the same naming conventions as `riverpod`, `freezed`, `go_router`, and the like. Once that's live, you will be very happy that you have this system in place at the outset.
+
+Essentially, within each class, you simply need to lead with a `widgetbook_annotations` reference that has the class name and an unique string identifier. Later, the concept of `knobs` will allow you to have variable data that you can change dynamically (e.g. sliders, booleans) within the mockup. This is already active in `widgetbook`, if you want to test that now.
+
+With the new generator, put this in front of each class that you want to have a mockup, then run `build_runner`:
+
+```dart
+@WidgetbookUseCase(name: 'Home', type: HomeView)
+Widget homeView(BuildContext context) => const HomeView();
+```
+
 Also (assuming you're following the same folder structure as this project), be sure to add this to your `launch.json` file:
 
 ```json
