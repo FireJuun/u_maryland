@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:u_maryland/src/features/home/home.dart';
 
@@ -26,9 +27,7 @@ class _Body extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Image.asset('assets/testudo-statue.png'),
-        const Text('text'),
-        const Text('text'),
-        const Text('text'),
+        const Expanded(child: _Selections())
       ],
     );
   }
@@ -50,5 +49,30 @@ class _BottomNavBar extends ConsumerWidget {
           BottomNavigationBarItem(
               icon: Icon(Icons.apps_outlined), label: 'Menu'),
         ]);
+  }
+}
+
+class _Selections extends HookConsumerWidget {
+  const _Selections();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final scrollController = useScrollController();
+    return Scrollbar(
+      controller: scrollController,
+      thumbVisibility: true,
+      thickness: 8,
+      child: SingleChildScrollView(
+        controller: scrollController,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12.0),
+          child: Wrap(
+            spacing: 12,
+            runSpacing: 24,
+            children: List.generate(150, (index) => const Text('text')),
+          ),
+        ),
+      ),
+    );
   }
 }
