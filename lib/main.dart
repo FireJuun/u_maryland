@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'src/src.dart';
 
@@ -11,10 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // title: 'U Maryland',
-      theme: appTheme(),
-      home: const HomeView(),
+    return ProviderScope(
+      child: MaterialApp(
+        // title: 'U Maryland',
+        theme: appTheme(),
+        home: const CounterView(),
+      ),
     );
   }
 }
