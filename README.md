@@ -1,6 +1,6 @@
 # u_maryland
 
-Demo project for the University of Maryland's Google Developer Student Club meeting on Friday April 28, 2023.
+Demo project for the University of Maryland's Google Developer Student Club meeting on Friday April 28, 2023. Associated [1-hour video](https://youtu.be/OJ2wkLPyQZM), [event link](https://gdsc.community.dev/events/details/developer-student-clubs-university-of-maryland-presents-introduction-to-flutter-with-google-developer-expert-john-manning/).
 
 <img align="right" src="demo.gif" width="250"/>
 
